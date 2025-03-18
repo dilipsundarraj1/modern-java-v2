@@ -22,11 +22,11 @@ subprojects {
 
     tasks.withType<JavaCompile> {
         val compilerArgs = options.compilerArgs
-        compilerArgs.add("--enable-preview")
+//        compilerArgs.add("--enable-preview")
     }
 
     tasks.test {
         useJUnitPlatform()
-        jvmArgs(listOf("--enable-preview"))
+//        jvmArgs(listOf("--enable-preview"))
     }
 }

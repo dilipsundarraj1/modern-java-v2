@@ -8,6 +8,8 @@ public class PaymentService {
     public PaymentResponse makePaymentv2(OrderDetails orderDetails) {
 
         //implement a payment gateway that can handle the different kinds of payment.
-        return PaymentResponse.SUCCESS;
+        var paymentGateway = PaymentFactory.paymentGateway(orderDetails.card().cardType());
+        return paymentGateway.makePayment(orderDetails.card(), orderDetails.finalAmount());
+        //return PaymentResponse.SUCCESS;
     }
 }

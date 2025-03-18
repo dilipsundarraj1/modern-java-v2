@@ -16,11 +16,37 @@ class PatternMatchingExampleTest {
 
     @ParameterizedTest
     @MethodSource("input")
+    void patternMatchUsingInstanceOf(Object value, String expectedResult) {
+
+        var output =  patternMatchingExample.patternMatchUsingInstanceOf(value);
+        assertEquals(expectedResult, output);
+    }
+
+    @ParameterizedTest
+    @MethodSource("input")
+    void patternMatchingUsingSwitch(Object value, String expectedResult) {
+
+        var output =  patternMatchingExample.patternMatchingUsingSwitch(value);
+        assertEquals(expectedResult, output);
+    }
+
+
+    @Test
+    void patternMatchingUsingSwitch_null() {
+
+        var output =  patternMatchingExample.patternMatchingUsingSwitch(null);
+        assertEquals("Not a String or Integer", output);
+    }
+
+    @ParameterizedTest
+    @MethodSource("input")
     void pattern(Object value, String expectedResult) {
 
         var output =  patternMatchingExample.pattern(value);
         assertEquals(expectedResult, output);
     }
+
+
 
     private static Stream<Arguments> input() {
         return Stream.of(
