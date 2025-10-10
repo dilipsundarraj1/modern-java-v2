@@ -40,4 +40,15 @@ public class AnimalService {
             case null-> "";
         };
     }
+
+    public String retrieveNameGuardedPatternWithUnNamedVariables(Animal animal) {
+        return switch (animal) {
+            case Cat(var name, var _) when name==null -> "";
+            case Cat(var name, var _) -> name;
+            case Dog(String name, String _) -> name;
+            // The null case is must and it handles the null pointer exception.
+            // It does not matter where this case statement is kept.
+            case null-> "";
+        };
+    }
 }
