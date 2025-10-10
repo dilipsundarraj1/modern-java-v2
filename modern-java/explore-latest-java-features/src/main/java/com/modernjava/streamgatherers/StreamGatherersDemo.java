@@ -410,7 +410,11 @@ public class StreamGatherersDemo {
                             return true;
                         },
                         (map, downstream) -> {
-                            map.entrySet().forEach(downstream::push);
+                            // Sort entries by key (decade) before pushing to downstream
+                            map.entrySet()
+                               .stream()
+                               .sorted(Map.Entry.comparingByKey())
+                               .forEach(downstream::push);
                         }
                 );
 
