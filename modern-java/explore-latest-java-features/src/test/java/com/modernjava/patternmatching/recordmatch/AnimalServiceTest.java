@@ -33,6 +33,13 @@ class AnimalServiceTest {
         assertEquals(expectedResult, name);
     }
 
+    @ParameterizedTest()
+    @MethodSource("inputWithNull")
+    void retrieveNameGuardedPatternWithUnNamedVariables(Animal animal, String expectedResult) {
+        var name = animalService.retrieveNameGuardedPatternWithUnNamedVariables(animal);
+        assertEquals(expectedResult, name);
+    }
+
 
     private static Stream<Arguments> input() {
         return Stream.of(
