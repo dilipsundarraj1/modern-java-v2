@@ -50,17 +50,17 @@ public class StreamGatherersDemo {
         demonstrateScan(movies);
 
         // sequentials vs mapconcurrent
-        demonstrateSequentialMap(movies);
-        demonstrateMapConcurrent(movies);
+      //  demonstrateSequentialMap(movies);
+       // demonstrateMapConcurrent(movies);
 
 
         //composite gatherers
 
         //simple custom gatherers
-        demonstrateSimpleCustomGatherer(movies);
+        //demonstrateSimpleCustomGatherer(movies);
 
         //Advanced custom gatherers
-        demonstrateTraditionalGrouping(movies);
+       // demonstrateTraditionalGrouping(movies);
     }
 
     /**
