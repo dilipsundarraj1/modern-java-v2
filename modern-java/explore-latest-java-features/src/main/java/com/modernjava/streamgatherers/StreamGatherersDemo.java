@@ -294,6 +294,17 @@ public class StreamGatherersDemo {
     private static void demonstrateSimpleCustomGatherer(List<Movie> movies) {
         System.out.println("=== Simple Custom Gatherer.of() - Filter & Transform ===");
 
+        // Compare with traditional approach
+        System.out.println("Traditional approach (for comparison):");
+        movies.stream()
+                .filter(movie -> movie.rating() >= 8.5)
+                .map(movie -> String.format("⭐ %s (%d) - %.1f★ [%s]",
+                        movie.title(),
+                        movie.getReleaseYear(),
+                        movie.rating(),
+                        movie.genre()))
+                .forEach(summary -> System.out.println("  " + summary));
+
         System.out.println();
 
 
